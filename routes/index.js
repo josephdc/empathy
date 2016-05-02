@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 var watsonController = require('../controllers/watson');
-var tweetsController = require('../controllers/tweets')
+var tweetsController = require('../controllers/tweets');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -10,6 +10,7 @@ router.get('/', function(req, res, next) {
 });
 
 
+// test pages
 router.get('/watson', watsonController.index)
 router.post('/watson', watsonController.analyze)
 // router.get('/tweets', tweetsController.index)

@@ -1,6 +1,6 @@
 require('dotenv').load();
 var watson = require('watson-developer-cloud');
-var locus require('locus');
+var locus = require('locus');
 // var bodyParser = require('body-parser')
 
 function textAnalyze(req, res, next) {
