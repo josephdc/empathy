@@ -17,6 +17,7 @@
     "morgan": "~1.6.1",
     "nodemon": "^1.9.2",
     "serve-favicon": "~2.3.0",
+    "twitter": "^1.2.5",
     "watson-developer-cloud": "^1.4.1"
   }
 }

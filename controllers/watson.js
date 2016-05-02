@@ -1,5 +1,6 @@
 require('dotenv').load();
 var watson = require('watson-developer-cloud');
+// var bodyParser = require('body-parser')
 
 function textAnalyze(req, res, next) {
   tone_analyzer.tone({ text: 'Greetings from Watson Developer Cloud!'}, function(err, tone) {
@@ -17,15 +18,22 @@ var tone_analyzer = watson.tone_analyzer({
   version_date: '2016-02-11'
 });
 
-module.exports = {
-  show: show
+
+function index(req, res, next) {
+  res.render('watson')
 }
 
-function show(req, res, next) {
-  tone_analyzer.tone({ text: 'Greetings from Watson Developer Cloud!'}, function(err, tone) {
+function analyze(req, res, next) {
+  console.log(req.body)
+  tone_analyzer.tone({ text: req.body.text}, function(err, tone) {
     if (err) console.log(err);
     else {
       res.json(tone)
     }
   })
+}
+
+module.exports = {
+  index: index,
+  analyze: analyze
 }

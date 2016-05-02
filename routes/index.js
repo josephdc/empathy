@@ -8,6 +8,7 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
-router.get('/watson', watsonController.show)
+router.get('/watson', watsonController.index)
+router.post('/watson', watsonController.analyze)
 
 module.exports = router;
