@@ -1,5 +1,6 @@
 require('dotenv').load();
 var watson = require('watson-developer-cloud');
+var locus require('locus');
 // var bodyParser = require('body-parser')
 
 function textAnalyze(req, res, next) {
@@ -28,6 +29,7 @@ function analyze(req, res, next) {
   tone_analyzer.tone({ text: req.body.text}, function(err, tone) {
     if (err) console.log(err);
     else {
+      // eval(locus)
       res.json(tone)
     }
   })
