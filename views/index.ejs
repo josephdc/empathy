@@ -1,1 +1,7 @@
-<h1><%= title %></h1>
+<% if (!user) { %>
+  <p><a href='/login'>Log in with Twitter</a></p>
+<% } else { %>
+  <h1><%= user.username %></h1>
+  <p><a href='/tweets'>Show last tweet</a></p>
+  <p><a href='/logout'>Log out</a></p>
+<% } %>

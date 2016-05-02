@@ -1,7 +1,16 @@
+// grab tweets then put them through watson
+
 require('dotenv').load();
+var Twitter = require('twitter');
 var watson = require('watson-developer-cloud');
 var locus = require('locus');
-// var bodyParser = require('body-parser')
+
+var client = new Twitter({
+  consumer_key: process.env.TWITTER_CONSUMER_KEY,
+  consumer_secret: process.env.TWITTER_CONSUMER_SECRET,
+  access_token_key: process.env.TWITTER_ACCESSTOKEN_KEY,
+  access_token_secret: process.env.TWITTER_ACCESSTOKEN_SECRET
+});
 
 function textAnalyze(req, res, next) {
   tone_analyzer.tone({ text: 'Greetings from Watson Developer Cloud!'}, function(err, tone) {
@@ -25,7 +34,6 @@ function index(req, res, next) {
 }
 
 function analyze(req, res, next) {
-  console.log(req.body)
   tone_analyzer.tone({ text: req.body.text}, function(err, tone) {
     if (err) console.log(err);
     else {

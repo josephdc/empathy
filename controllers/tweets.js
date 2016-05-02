@@ -9,17 +9,17 @@ var client = new Twitter({
   access_token_secret: process.env.TWITTER_ACCESSTOKEN_SECRET
 });
 
-var params = {
-  screen_name: 'wersterlobe',
-  count: 1
-};
+// var params = {
+//   screen_name: req.user.username,
+//   count: 1
+// };
 
 function show(req, res, next) {
-  client.get('statuses/user_timeline', params, function(err, tweets, resp) {
+  client.get('statuses/user_timeline', {screen_name: req.user.username, count: 1}, function(err, tweets, resp) {
     if (err) console.log(err)
     else {
       var tweetData = JSON.parse(resp.body)[0]
-      res.json(tweetData)
+      res.json(tweetData.text)
     }
   })
 }
