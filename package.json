@@ -16,6 +16,7 @@
     "locus": "^1.2.0",
     "morgan": "~1.6.1",
     "nodemon": "^1.9.2",
+    "passport-twitter": "^1.0.4",
     "serve-favicon": "~2.3.0",
     "twitter": "^1.2.5",
     "watson-developer-cloud": "^1.4.1"
