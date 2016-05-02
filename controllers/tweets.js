@@ -15,11 +15,11 @@ var client = new Twitter({
 // };
 
 function show(req, res, next) {
-  client.get('statuses/user_timeline', {screen_name: req.user.username, count: 1}, function(err, tweets, resp) {
+  client.get('statuses/user_timeline', {screen_name: req.user.username, count: 2}, function(err, tweets, resp) {
     if (err) console.log(err)
     else {
-      var tweetData = JSON.parse(resp.body)[0]
-      res.json(tweetData.text)
+      var tweetData = JSON.parse(resp.body)
+      res.json(tweetData)
     }
   })
 }

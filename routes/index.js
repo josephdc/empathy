@@ -27,8 +27,9 @@ router.get('/logout', function(req, res) {
 })
 
 // test pages
-router.get('/watson', watsonController.index)
-router.post('/watson', watsonController.analyze)
+router.get('/watson', watsonController.analyze)
+router.get('/watson/test', watsonController.test)
+// router.post('/watson', watsonController.analyze)
 // router.get('/tweets', tweetsController.index)
 router.get('/tweets', tweetsController.show)
 

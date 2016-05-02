@@ -5,9 +5,13 @@
     <title></title>
   </head>
   <body>
-    <form action="/watson" method='POST'>
-      <input name='text' type='textarea' placeholder='enter your text'/><br>
-      <button type='submit'>Submit</button>
-    </form>
+    <p> <%= text %> </p>
+    <ul>
+      <% result.forEach(function(category) { %>
+        <li>
+          <%= category.tone_name %>: <%= category.score %>
+        </li>
+      <% }) %>
+    </ul>
   </body>
 </html>

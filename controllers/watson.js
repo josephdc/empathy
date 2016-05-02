@@ -34,16 +34,40 @@ function index(req, res, next) {
 }
 
 function analyze(req, res, next) {
-  tone_analyzer.tone({ text: req.body.text}, function(err, tone) {
-    if (err) console.log(err);
+  // get tweet
+  client.get('statuses/user_timeline', {screen_name: req.user.username, count: 1}, function(err, tweets, resp) {
+    if (err) console.log(err)
     else {
-      // eval(locus)
-      res.json(tone)
+      // plug tweet into watson
+      var tweetData = JSON.parse(resp.body)[0]
+      tone_analyzer.tone({ text: tweetData.text}, function(err, tone) {
+        if (err) console.log(err);
+        else {
+          // get desired data from returned json
+          var result = tone.document_tone.tone_categories[0].tones
+          res.render('watson', {
+            text: tweetData.text,
+            result: result
+          })
+        }
+      })
     }
+  })
+}
+
+
+// watson testing
+var text = "hey guys hows it goin kripparrian here"
+
+function test(req, res, next) {
+  tone_analyzer.tone({text: text}, function(err, tone) {
+    if (err) console.log(err);
+    else res.json(tone)
   })
 }
 
 module.exports = {
   index: index,
-  analyze: analyze
+  analyze: analyze,
+  test: test
 }
