@@ -5,7 +5,7 @@ var Strategy = require('passport-twitter').Strategy;
 passport.use(new Strategy({
   consumerKey: process.env.TWITTER_CONSUMER_KEY,
   consumerSecret: process.env.TWITTER_CONSUMER_SECRET,
-  callbackURL: '/oauthcallback'
+  callbackURL: process.env.TWITTER_CALLBACK
   },
   function(token, tokenSecret, profile, cb) {
     console.log(Object.keys(profile))
