@@ -6,3 +6,73 @@ body {
 a {
   color: #00B7FF;
 }
+
+body {
+  background-color: white;
+}
+
+h1 {
+  margin-top: -40px;
+
+}
+
+#nav {
+  text-align: right;
+  background-color: grey;
+  margin-top: -20px;
+  padding: 15px;
+}
+
+/* colorDissolve  */
+.colorDissolve {
+  position: relative;
+  overflow: hidden;
+  width: 287px;
+  height: 430px;
+  background: #000000;
+}
+.colorDissolve .item {
+  position: absolute;
+  left: 0;
+  right: 0;
+  opacity: 0;
+  -webkit-animation: colorDissolve 24s linear infinite;
+  -moz-animation: colorDissolve 24s linear infinite;
+  -ms-animation: colorDissolve 24s linear infinite;
+  animation: colorDissolve 24s linear infinite;
+}
+.colorDissolve .item:nth-child(2) {
+  -webkit-animation-delay: 6s;
+  -moz-animation-delay: 6s;
+  -ms-animation-delay: 6s;
+  animation-delay: 6s;
+}
+.colorDissolve .item:nth-child(3) {
+  -webkit-animation-delay: 12s;
+  -moz-animation-delay: 12s;
+  -ms-animation-delay: 12s;
+  animation-delay: 12s;
+}
+.colorDissolve .item:nth-child(4) {
+  -webkit-animation-delay: 18s;
+  -moz-animation-delay: 18s;
+  -ms-animation-delay: 18s;
+  animation-delay: 18s;
+}
+
+@-webkit-keyframes colorDissolve {
+    0%, 25%, 100% { opacity: 0; }
+    4.17%, 20.84% { opacity: 1;}
+}
+@-moz-keyframes colorDissolve {
+    0%, 25%, 100% { opacity: 0; }
+    4.17%, 20.84% { opacity: 1;}
+}
+@-ms-keyframes colorDissolve {
+    0%, 25%, 100% { opacity: 0; }
+    4.17%, 20.84% { opacity: 1;}
+}
+@keyframes colorDissolve {
+    0%, 25%, 100% { opacity: 0; }
+    4.17%, 20.84% { opacity: 1;}
+}
