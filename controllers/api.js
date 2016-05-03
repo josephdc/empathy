@@ -17,7 +17,9 @@ function findDocumentHandler(err, doc) {
 
 function findYourself(req, res, next) {
   var yours = req.user.id;
-  User.findOne({id: yours}, findDocumentHandler);
+  User.findOne({id: yours}, (err, doc) => {
+    if (!err) res.json(doc)
+  });
 };
 
 function findUser (req, res, next) {
@@ -54,14 +56,17 @@ function findUserByDisplayname (req, res, next) {
 
 function findReportById(req, res, next) {
   var id = req.params.id;
+  console.log(id)
   Report.findOne({_id: id}, (err, doc) => {
     if (!err) res.json(doc)
   })
 }
 
+// last report of logged in user
 function findLatestReport(req, res, next) {
-  var id = 726898806462140400;
-  Report.find({user_id: id}).limit(1).exec((err, doc) => {
-    if (!err) res.json(doc)
+  var id = req.user.id;
+  Report.find({user_id: id}).sort({tweetId: -1}).limit(1).exec((err, doc) => {
+    if (err) res.send(err)
+    else res.json(doc)
   })
 }

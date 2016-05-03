@@ -6,6 +6,8 @@ var userSchema = new mongoose.Schema({
   id: {type: Number, unique: true}, //twitter id
   username: String,
   displayname: String,
+  created_at: Date,
+  updated_at: Date
   // reports: [{type: schema.Types.ObjectId, ref: "Report"}]
 })
 
