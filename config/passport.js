@@ -10,24 +10,13 @@ passport.use(new Strategy({
   callbackURL: process.env.TWITTER_CALLBACK
   },
   function(accessToken, refreshToken, profile, cb) {
-    console.log(Object.keys(profile))
-    console.log(profile.displayName)
-    User.findOne({ 'id': profile.id }, function(err, user) {
-      if (err) return cb(err);
-      if (user) {
-        return cb(null, user);
-      } else {
-        // we have a new user via OAuth!
-        var newUser = new User({
-          id: profile.id,
-          username: profile.username,
-          displayname: profile.displayName
-        });
-        newUser.save(function(err) {
-          if (err) return cb(err);
-          return cb(null, newUser);
-        });
-      }
+    var newUser = new User({
+      id: profile.id,
+      username: profile.username,
+      displayname: profile.displayName
+    });
+    newUser.save(function(err) {
+      return cb(null, newUser);
     });
   }
 ));
