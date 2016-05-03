@@ -2,6 +2,11 @@
   <p><a href='/login'>Log in with Twitter</a></p>
 <% } else { %>
   <h1><%= user.username %></h1>
+  <ul>
+  <% Object.keys(user).forEach(function(key) { %>
+    <li> <%= key %>: <%= user[key] %> </li>
+  <% }) %>
+  </ul>
   <p><a href='/tweets'>Show last tweet</a></p>
   <p><a href='/watson'>Analyze last tweet</a></p>
   <p><a href='/logout'>Log out</a></p>

@@ -1,7 +1,8 @@
 require('dotenv').load();
 var passport = require('passport');
 var Strategy = require('passport-twitter').Strategy;
-var User = require('../models/user')
+var User = require('../models/user');
+var locus = require('locus');
 
 passport.use(new Strategy({
   consumerKey: process.env.TWITTER_CONSUMER_KEY,
@@ -9,6 +10,8 @@ passport.use(new Strategy({
   callbackURL: process.env.TWITTER_CALLBACK
   },
   function(accessToken, refreshToken, profile, cb) {
+    console.log(Object.keys(profile))
+    console.log(profile.displayName)
     User.findOne({ 'id': profile.id }, function(err, user) {
       if (err) return cb(err);
       if (user) {

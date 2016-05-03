@@ -5,7 +5,7 @@ var schema = mongoose.Schema
 var userSchema = new mongoose.Schema({
   id: Number,
   username: String,
-  displayName: String,
+  displayname: String,
   reports: [{type: schema.Types.ObjectId, ref: "Report"}]
 })
 

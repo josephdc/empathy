@@ -5,6 +5,8 @@ var passport = require('passport');
 var watsonController = require('../controllers/watson');
 var tweetsController = require('../controllers/tweets');
 var reportController = require('../controllers/report');
+var apiController    = require('../controllers/api');
+var locus = require('locus');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -36,5 +38,6 @@ router.get('/tweets', tweetsController.show)
 router.get('/db', reportController.show)
 
 // homegrown api calls
+router.get('/api/you', apiController.findYourself)
 
 module.exports = router;
