@@ -4,7 +4,8 @@ require('dotenv').load();
 var Twitter = require('twitter');
 var watson = require('watson-developer-cloud');
 var locus = require('locus');
-var Report = require('../models/report')
+var Report = require('../models/report');
+var User = require('../models/user');
 
 var client = new Twitter({
   consumer_key: process.env.TWITTER_CONSUMER_KEY,
@@ -48,6 +49,7 @@ function analyze(req, res, next) {
           var result = tone.document_tone.tone_categories
           // save result to data base
           var newReport = new Report({
+          user_id: req.user.id,
           tweetId: tweetData.id,
           text: tweetData.text,
           tone_categories: result
@@ -62,6 +64,10 @@ function analyze(req, res, next) {
     }
   })
 }
+
+
+
+
 
 // wrapper functions for analyze()
 function makeReport(userId, newEntry) {

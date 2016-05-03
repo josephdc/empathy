@@ -13,7 +13,8 @@ var toneCategoriesSchema = new mongoose.Schema({
 })
 
 var reportSchema = new mongoose.Schema({
-  tweetId: Number,
+  user_id: Number,
+  tweetId: {type: Number, unique: true},
   text: String,
   tone_categories: [toneCategoriesSchema]
 })
