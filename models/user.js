@@ -3,10 +3,9 @@ var Report = require('./report');
 var schema = mongoose.Schema
 
 var userSchema = new mongoose.Schema({
-  id: Number,
+  id: {Type: Number, unique: true}, //twitter id
   username: String,
   displayName: String,
-  reports: [{type: schema.Types.ObjectId, ref: "Report"}]
 })
 
 var User = mongoose.model("User", userSchema);
