@@ -1,17 +1,8 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-  </head>
-  <body>
-    <p> <%= text %> </p>
-    <ul>
-      <% result.forEach(function(category) { %>
-        <li>
-          <%= category.tone_name %>: <%= category.score %>
-        </li>
-      <% }) %>
-    </ul>
-  </body>
-</html>
+<p> <%= text %> </p>
+<ul>
+  <% result.forEach(function(category) { %>
+    <li>
+      <%= category.tone_name %>: <%= category.score %>
+    </li>
+  <% }) %>
+</ul>

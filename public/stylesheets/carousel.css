@@ -1,9 +1,17 @@
+/* GLOBAL STYLES
+-------------------------------------------------- */
+/* Padding below the footer and lighter body text */
+
 body {
   padding-bottom: 40px;
   color: #5a5a5a;
-  font-family: 'Dosis', sans-serif;
 }
 
+
+/* CUSTOMIZE THE NAVBAR
+-------------------------------------------------- */
+
+/* Special class on .container surrounding .navbar, used for positioning it into place. */
 .navbar-wrapper {
   position: absolute;
   top: 0;
@@ -12,6 +20,7 @@ body {
   z-index: 20;
 }
 
+/* Flip around the padding for proper display in narrow viewports */
 .navbar-wrapper > .container {
   padding-right: 0;
   padding-left: 0;
@@ -24,23 +33,9 @@ body {
   width: auto;
 }
 
-#navbar {
-margin-left: 175px;
-}
 
-#nav-brand {
-  color: white;
-  font-family: 'Dosis', sans-serif;
-  font-size: 35px;
-}
-
-#nav-bar-login {
-  width: 125px;
-  height: 23px;
-  float: right;
-  margin-top: 13px;
-  background-color: lightgrey;
-}
+/* CUSTOMIZE THE CAROUSEL
+-------------------------------------------------- */
 
 /* Carousel base class */
 .carousel {
@@ -50,7 +45,6 @@ margin-left: 175px;
 /* Since positioning the image, we need to help out the caption */
 .carousel-caption {
   z-index: 10;
-  font-family: 'Dosis', sans-serif;
 }
 
 /* Declare heights because of positioning of img element */
@@ -74,16 +68,13 @@ margin-left: 175px;
 .marketing .col-lg-4 {
   margin-bottom: 20px;
   text-align: center;
-  font-family: 'Dosis', sans-serif;
 }
-.marketing h4 {
+.marketing h2 {
   font-weight: normal;
-  font-family: 'Dosis', sans-serif;
 }
 .marketing .col-lg-4 p {
   margin-right: 10px;
   margin-left: 10px;
-  font-family: 'Dosis', sans-serif;
 }
 
 
@@ -99,7 +90,6 @@ margin-left: 175px;
   font-weight: 300;
   line-height: 1;
   letter-spacing: -1px;
-  font-family: 'Dosis', sans-serif;
 }
 
 
@@ -129,13 +119,11 @@ margin-left: 175px;
   .carousel-caption p {
     margin-bottom: 20px;
     font-size: 21px;
-    font-family: 'Dosis', sans-serif;
     line-height: 1.4;
   }
 
   .featurette-heading {
     font-size: 50px;
-    font-family: 'Dosis', sans-serif;
   }
 }
 
@@ -144,4 +132,3 @@ margin-left: 175px;
     margin-top: 120px;
   }
 }
-
