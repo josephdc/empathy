@@ -52,20 +52,25 @@ function analyze(req, res, next) {
           text: tweetData.text,
           tone_categories: result
         });
-          Report.findOne({ 'tweetId': tweetData.id }, function (err, report){
-            if(!report) {
-              newReport.save(function(err) {
-              if (err){
-                return (console.log (err));
-              }});
-            }
-          })
+          makeReport(tweetData.id, newReport)
           res.render('watson', {
             text: tweetData.text,
             result: result[0].tones
           })
         }
       })
+    }
+  })
+}
+
+// wrapper functions for analyze()
+function makeReport(userId, newEntry) {
+  Report.findOne({ 'tweetId': userId }, function (err, report){
+    if(!report) {
+      newEntry.save(function(err) {
+      if (err){
+        return (console.log (err));
+      }});
     }
   })
 }
