@@ -15,6 +15,7 @@ body {
 .navbar-wrapper > .container {
   padding-right: 0;
   padding-left: 0;
+  background-color: #0693C2;
 }
 .navbar-wrapper .navbar {
   padding-right: 15px;
@@ -22,14 +23,16 @@ body {
 }
 .navbar-wrapper .navbar .container {
   width: auto;
+  background-color: white;
 }
 
 #navbar {
 margin-left: 175px;
+background-color: white;
 }
 
 #nav-brand {
-  color: white;
+  color: grey;
   font-family: 'Dosis', sans-serif;
   font-size: 35px;
 }
@@ -62,8 +65,8 @@ margin-left: 175px;
 }
 
 /* Declare heights because of positioning of img element */
-.carousel-caption {
-  background-image: url("../images/tweets.png");
+#tweet-background {
+  background-image: url("../images/tweets1.png");
 }
 
 .carousel .item {
