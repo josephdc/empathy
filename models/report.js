@@ -13,7 +13,9 @@ var toneCategoriesSchema = new mongoose.Schema({
 })
 
 var reportSchema = new mongoose.Schema({
-  tone_categories: [toneCategoriesSchema],
+  tweetId: Number,
+  text: String,
+  tone_categories: [toneCategoriesSchema]
 })
 
 var Report = mongoose.model("Report", reportSchema);
