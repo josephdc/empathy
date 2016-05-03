@@ -42,6 +42,6 @@ router.get('/api/you', apiController.findYourself)
 router.get('/api/users/id/:id', apiController.findUserById)
 router.get('/api/users/username/:username', apiController.findUserByUsername)
 router.get('/api/users/displayname/:displayname', apiController.findUserByDisplayname)
-router.get('/api/reports')
+router.get('/api/reports/:id', apiController.findReportById)
 
 module.exports = router;

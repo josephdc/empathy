@@ -23,10 +23,11 @@ function findUser (req, res, next) {
   // var id = req.query.id;
   // var username = req.query.username;
   // var displayname = req.query.displayname;
+  // var attrs = [id, username, displayname]
   //
-  // if (id) User.findOne({id: id}, findDocumentHandler);
-  // if (username) User.findOne({username: username}, findDocumentHandler);
-  // if (displayname) User.findOne({displayname: displayname}, findDocumentHandler);
+  // attrs.forEach((attr) => {
+  //   if (attr) return
+  // })
 }
 
 function findUserById (req, res, next) {
@@ -51,6 +52,8 @@ function findUserByDisplayname (req, res, next) {
 }
 
 function findReportById(req, res, next) {
-  var id = req.query.id;
-  Report.findOne({_id: id}, findDocumentHandler)
+  var id = req.params.id;
+  Report.findOne({_id: id}, (err, doc) => {
+    if (!err) res.json(doc)
+  })
 }
