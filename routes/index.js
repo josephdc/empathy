@@ -4,7 +4,7 @@ var passport = require('passport');
 
 var watsonController = require('../controllers/watson');
 var tweetsController = require('../controllers/tweets');
-var reportController = require('../controllers/report')
+var reportController = require('../controllers/report');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -27,13 +27,14 @@ router.get('/logout', function(req, res) {
   res.redirect('/');
 })
 
-// test pages
+// third party api calls
 router.get('/watson', watsonController.analyze)
 router.get('/watson/test', watsonController.test)
-// router.post('/watson', watsonController.analyze)
-// router.get('/tweets', tweetsController.index)
 router.get('/tweets', tweetsController.show)
 
+// database retrieval test
 router.get('/db', reportController.show)
+
+// homegrown api calls
 
 module.exports = router;
