@@ -7,7 +7,8 @@ module.exports = {
   findUserById:          findUser,
   findUserByUsername:    findUserByUsername,
   findUserByDisplayname: findUserByDisplayname,
-  findReportById:        findReportById
+  findReportById:        findReportById,
+  findLatestReport:      findLatestReport
 };
 
 function findDocumentHandler(err, doc) {
@@ -54,6 +55,13 @@ function findUserByDisplayname (req, res, next) {
 function findReportById(req, res, next) {
   var id = req.params.id;
   Report.findOne({_id: id}, (err, doc) => {
+    if (!err) res.json(doc)
+  })
+}
+
+function findLatestReport(req, res, next) {
+  var id = 726898806462140400;
+  Report.find({user_id: id}).limit(1).exec((err, doc) => {
     if (!err) res.json(doc)
   })
 }

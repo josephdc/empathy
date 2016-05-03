@@ -1,8 +1,41 @@
-<p> <%= text %> </p>
-<ul>
-  <% result.forEach(function(category) { %>
-    <li>
-      <%= category.tone_name %>: <%= category.score %>
-    </li>
-  <% }) %>
-</ul>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {packages: ['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+       // Define the chart to be drawn.
+       var data = new google.visualization.DataTable();
+       data.addColumn('string', 'Emotion');
+       data.addColumn('number', 'Probability');
+       data.addRows([
+         ['Anger', <%= result[0].score %>],
+         ['Disgust', <%= result[1].score %>],
+         ['Fear', <%= result[2].score %>],
+         ['Joy', <%= result[3].score %>],
+         ['Sadness', <%= result[4].score %>]
+       ]);
+
+       // Instantiate and draw the chart.
+       var chart = new google.visualization.BarChart(document.getElementById('chart'));
+       chart.draw(data, null);
+      }
+    </script>
+  </head>
+  <body>
+    <p> <%= text %> </p>
+    <ul>
+      <% result.forEach(function(category) { %>
+        <li>
+          <%= category.tone_name %>: <%= category.score %>
+        </li>
+      <% }) %>
+    </ul>
+    <div style='max-width: 600px' id='chart'></div>
+  </body>
+</html>
