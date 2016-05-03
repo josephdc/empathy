@@ -6,52 +6,39 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
-      // google.charts.load('current', {packages: ['corechart']});
-      // google.charts.setOnLoadCallback(drawChart);
-      //
-      // function drawChart(obj) {
-      //  // Define the chart to be drawn.
-      //  var data = new google.visualization.DataTable();
-      //  data.addColumn('string', 'Emotion');
-      //  data.addColumn('number', 'Probability');
-      //  data.addRows([
-      //    ['Anger', obj.anger],
-      //    ['Disgust', obj.disgust],
-      //    ['Fear', obj.fear],
-      //    ['Joy', obj.joy],
-      //    ['Sadness', obj.sadness]
-      //  ]);
-      // }
+      google.charts.load('current', {packages: ['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
 
       var emotionScore = {}
+
+      function drawChart() {
+       // Define the chart to be drawn.
+       var data = new google.visualization.DataTable();
+       data.addColumn('string', 'Emotion');
+       data.addColumn('number', 'Probability');
+       data.addRows([
+         ['Anger', emotionScore.anger],
+         ['Disgust', emotionScore.disgust],
+         ['Fear', emotionScore.fear],
+         ['Joy', emotionScore.joy],
+         ['Sadness', emotionScore.sadness]
+       ]);
+
+       var chart = new google.visualization.BarChart(document.getElementById('chart'));
+       chart.draw(data, null);
+      }
+
       $.ajax({
         url: '/api/reports/latest',
         method: 'GET'
       }).then(function(doc){
-        console.log(Object.keys(JSON.parse(doc)))
-        var tones = doc.document_tone.tone_categories[0].tones
+        console.log(doc[0])
+        var tones = doc[0].tone_categories[0].tones
         emotionScore['anger']   = tones[0].score
         emotionScore['disgust'] = tones[1].score
         emotionScore['fear']    = tones[2].score
         emotionScore['joy']     = tones[3].score
         emotionScore['sadness'] = tones[4].score
-
-        google.charts.load('current', {packages: ['corechart']});
-        google.charts.setOnLoadCallback(function() {
-           var data = new google.visualization.DataTable();
-           data.addColumn('string', 'Emotion');
-           data.addColumn('number', 'Probability');
-           data.addRows([
-             ['Anger', emotionScore.anger],
-             ['Disgust', emotionScore.disgust],
-             ['Fear', emotionScore.fear],
-             ['Joy', emotionScore.joy],
-             ['Sadness', emotionScore.sadness]
-           ]);
-        });
-
-        var chart = new google.visualization.BarChart(document.getElementById('chart'));
-        chart.draw(data, null);
       })
     </script>
   </head>
