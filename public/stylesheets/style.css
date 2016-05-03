@@ -35,14 +35,22 @@ margin-left: 175px;
 }
 
 #nav-bar-login {
-  width: 125px;
-  height: 23px;
+  width: 160px;
+  height: 30px;
   float: right;
-  margin-top: 13px;
-  background-color: lightgrey;
+  margin-top: 10px;
+  background-image: url("../images/twitter-logo.png");
+  background-repeat: no-repeat;
 }
 
 /* Carousel base class */
+#twitter-login {
+  background-image: url("../images/twitter-logo.png");
+  background-repeat: no-repeat;
+  width: 160px;
+  height: 30px;
+}
+
 .carousel {
   height: 500px;
   margin-bottom: 60px;
@@ -54,6 +62,10 @@ margin-left: 175px;
 }
 
 /* Declare heights because of positioning of img element */
+.carousel-caption {
+  background-image: url("../images/tweets.png");
+}
+
 .carousel .item {
   height: 500px;
   background-color: #777;
