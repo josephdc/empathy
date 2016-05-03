@@ -9,7 +9,7 @@ passport.use(new Strategy({
   callbackURL: process.env.TWITTER_CALLBACK
   },
   function(accessToken, refreshToken, profile, cb) {
-    User.findOne({ 'twitterId': profile.id }, function(err, user) {
+    User.findOne({ 'id': profile.id }, function(err, user) {
       if (err) return cb(err);
       if (user) {
         return cb(null, user);
