@@ -8,14 +8,7 @@
     <script type="text/javascript" src='javascripts/chart.js'></script>
   </head>
   <body>
-    <p> <%= text %> </p>
-    <ul>
-      <% result.forEach(function(category) { %>
-        <li>
-          <%= category.tone_name %>: <%= category.score %>
-        </li>
-      <% }) %>
-    </ul>
+    <h1>Last tweet report</h1>
     <div id='emo-chart'></div>
     <div id='lang-chart'></div>
     <div id='soc-chart'></div>

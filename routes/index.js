@@ -29,6 +29,11 @@ router.get('/logout', function(req, res) {
   res.redirect('/');
 })
 
+// profile page
+router.get('/profile', function(req, res) {
+  res.render('report')
+})
+
 // third party api calls
 router.get('/watson', watsonController.analyze)
 router.get('/watson/test', watsonController.test)
