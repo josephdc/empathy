@@ -23,7 +23,7 @@ router.get('/login', passport.authenticate('twitter'))
 router.get('/oauthcallback',
   passport.authenticate('twitter', {failureRedirect:'/'}),
   function(req, res) {
-    res.redirect('/');
+    res.redirect('/watson/setup');
   }
 );
 
