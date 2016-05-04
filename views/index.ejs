@@ -7,17 +7,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>SENTiment</title>
-    <link rel="stylesheet" href="stylesheets/style.css" />
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="stylesheets/style.css" />
+
 
   </head>
 
   <body>
   <div class="navbar-wrapper">
-      <div class="container">
+<!--       <div class="container"> -->
         <nav class="navbar navbar-inverse navbar-static-top">
-          <div class="container">
+<!--           <div class="container"> -->
             <div class="navbar-header">
               <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
                 <span class="sr-only">Toggle navigation</span>
@@ -41,10 +42,10 @@
                 <a id="nav-bar-login" class="btn btn-xs btn-default" href="/logout" role="button">Log out</a>
               <% } %>
             </div>
-          </div>
+          <!-- </div> -->
         </nav>
 
-      </div>
+      <!-- </div> -->
     </div>
 
 
@@ -58,31 +59,31 @@
         <li data-target="#myCarousel" data-slide-to="2"></li>
       </ol>
       <div class="carousel-inner" role="listbox">
-        <div class="item active">
-          <img class="first-slide" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="First slide">
+
+        <div id="slide1" class="item active">
+          <div id="think-twitter" class="first-slide"></div>
           <div class="container">
             <div  class="carousel-caption">
               <h1>SENTiment</h1>
-              <p>Discover the emotions your TWEETS portray. </p>
-              <p><a id="twitter-login"class="btn btn-lg btn-default" href="/login" role="button"></a></p>
+              <p>EMOTION - LANGUAGE - SOCIAL </p>
             </div>
           </div>
         </div>
-        <div class="item">
-          <img class="second-slide" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Second slide">
+        <div id="slide2" class="item">
+          <div id="think-sentiment" class="second-slide"></div>
           <div class="container">
             <div class="carousel-caption">
-              <h1>Content</h1>
-              <p>Information</p>
+              <h1></h1>
+              <p></p>
             </div>
           </div>
         </div>
-        <div class="item">
-          <img class="third-slide" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Third slide">
+        <div id="slide3" class="item">
+          <div id="think-tweet" class="third-slide"></div>
           <div class="container">
             <div class="carousel-caption">
-              <h1>Content</h1>
-              <p>Information</p>
+              <h1></h1>
+              <p></p>
             </div>
           </div>
         </div>
@@ -105,21 +106,18 @@
     <div class="container marketing">
 
       <!-- Three columns of text below the carousel -->
-      <div class="row">
+      <div id="circle-text" class="row">
         <div class="col-lg-4">
           <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
-          <h4>Emotion Summary</h4>
-          <p>Facts pertaining to emotion summary</p>
+          <h4>Emotional Summary</h4>
         </div><!-- /.col-lg-4 -->
         <div class="col-lg-4">
           <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
           <h4>Language Style Summary</h4>
-          <p>Facts pertaining to language style summary</p>
         </div><!-- /.col-lg-4 -->
         <div class="col-lg-4">
           <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
           <h4>Social Summary</h4>
-          <p>Facts pertaining to social summary</p>
         </div><!-- /.col-lg-4 -->
       </div><!-- /.row -->
 
@@ -143,7 +141,7 @@
       <div id="row2" class="row featurette">
         <div class="col-md-7 col-md-push-5">
           <h2 class="featurette-heading">Language Style<span class="text-muted"> Summary...</span></h2>
-          <p class="lead">This summary will analyze your last 10 Twitter post. The Language Style Summary will provide you with stats specific to what style of communication your post are presenting based on Analytical, Confident and Tentative communciation.  </p>
+          <p class="lead">Describes percieved writing style using these categories: analytical style, reasoning style and confidence. For each of these categories, the service outputs a score from 0 to 1 that indicates tendency toward being perceived as described in the table.  </p>
         </div>
         <div class="col-md-5 col-md-pull-7">
           <img class="featurette-image img-responsive center-block" src="/images/LanguageStyle.png" alt="Generic placeholder image">
@@ -155,7 +153,7 @@
       <div id="row3" class="row featurette">
         <div class="col-md-7">
           <h2 class="featurette-heading">Social<span class="text-muted"> Summary...</span></h2>
-          <p class="lead">How social are your Twitter post? Social Summary will provide you with detailed stats based on your level of Openness, Conscientiousness, Extraversion, Agreeableness and Emotional Range from your last 10 Twitter post. </p>
+          <p class="lead">Social tone measures the social tendencies in yor Tweets. SENTiment Analyzer responds with analysis on five different social tones; openness, conscientiousness, extraversion, agreeableness and emotional range/neuroticism. These five social tones are adopted from the Big-five personality model. For each of these categories, the service outputs a score from 0 to 1 that indicates tendency toward the listed behaviors. </p>
         </div>
         <div class="col-md-5">
           <img class="featurette-image img-responsive center-block" src="/images/SocialSummary.png" alt="Generic placeholder image">
