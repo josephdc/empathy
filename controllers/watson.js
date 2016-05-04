@@ -67,7 +67,7 @@ function analyze(req, res, next) {
           // save result to data base
           var newReport = new Report({
             user_id: req.user.id,
-            report_name: `${req.body.since} to ${req.body.until}`
+            report_name: `${req.body.since} to ${req.body.until}`,
             text: textString,
             created_at: Date.now(),
             tone_categories: result
