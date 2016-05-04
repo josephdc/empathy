@@ -13,6 +13,9 @@ router.get('/', function(req, res, next) {
   res.render('index', { user: req.user });
 });
 
+
+router.get('/query', reportController.showCalendar)
+
 // twitter oauth login
 router.get('/login', passport.authenticate('twitter'))
 
@@ -20,7 +23,7 @@ router.get('/login', passport.authenticate('twitter'))
 router.get('/oauthcallback',
   passport.authenticate('twitter', {failureRedirect:'/'}),
   function(req, res) {
-    res.redirect('/');
+    res.redirect('/watson/setup');
   }
 );
 
