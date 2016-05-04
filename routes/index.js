@@ -34,9 +34,14 @@ router.get('/profile', function(req, res) {
   res.render('report')
 })
 
+// query page
+router.get('/watson/setup', function(req, res) {
+  res.render('query')
+})
+
 // third party api calls
 router.get('/watson', watsonController.analyze)
-router.get('/watson/tweetten', watsonController.analyzeAll)
+router.post('/watson/analyze', watsonController.analyze)
 router.get('/watson/test', watsonController.test)
 router.get('/watson/ten', watsonController.testTen)
 router.get('/tweets', tweetsController.show)

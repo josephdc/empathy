@@ -18,6 +18,7 @@ var reportSchema = new mongoose.Schema({
   text: String,
   tone_categories: [toneCategoriesSchema],
   report_name: {type: String, unique: true},
+  tweet_created_at: Date,
   created_at: Date,
   updated_at: Date
 })

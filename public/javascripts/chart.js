@@ -91,9 +91,9 @@ $.ajax({
 
   // language style section
   var style = doc[0].tone_categories[1].tones
-  var styles = ['analytical', 'confident', 'tentative']
-  styles.forEach(function(style, index) {
-    writingScore[style] = style[index].score
+  var langStyles = ['analytical', 'confident', 'tentative']
+  langStyles.forEach(function(langStyle, index) {
+    writingScore[langStyle] = style[index].score
   })
 
   // social section

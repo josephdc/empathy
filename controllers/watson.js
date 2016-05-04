@@ -36,28 +36,46 @@ function index(req, res, next) {
 }
 
 function analyze(req, res, next) {
-  // get tweet
-  client.get('statuses/user_timeline', {screen_name: req.user.username, count: 1}, function(err, tweets, resp) {
+  // twitter part
+  client.get('statuses/user_timeline', {screen_name: req.user.username}, function(err, tweets, resp) {
     if (err) console.log(err)
     else {
-      // plug tweet into watson
-      var tweetData = JSON.parse(resp.body)[0]
-      tone_analyzer.tone({ text: tweetData.text}, function(err, tone) {
+      ///// watson part /////
+
+      var tweetData = JSON.parse(resp.body)
+      // filter function by date range
+      console.log(tweetData)
+      console.log(`since: ${req.body.since}`)
+      var wantedData = tweetData.filter((tweet) => {
+        var createdAt = new Date(tweet.created_at)
+        var since = new Date(req.body.since)
+        var until = new Date(req.body.until)
+        return (createdAt > since && createdAt < until)
+      })
+      console.log(wantedData)
+      // concatentate tweets into one string
+      textString = ''
+      wantedData.forEach((tweet) => {
+        textString += `${tweet.text}. `
+      })
+      console.log(`textString: ${textString}`)
+      tone_analyzer.tone({ text: textString }, function(err, tone) {
         if (err) console.log(err);
         else {
           // get desired data from returned json
           var result = tone.document_tone.tone_categories
           // save result to data base
           var newReport = new Report({
-          user_id: req.user.id,
-          tweetId: tweetData.id,
-          text: tweetData.text,
-          tone_categories: result
-        });
-          makeReport(tweetData.id, newReport)
+            user_id: req.user.id,
+            report_name: `${req.body.since} to ${req.body.until}`
+            text: textString,
+            created_at: Date.now(),
+            tone_categories: result
+          });
+          newReport.save()
           res.render('watson', {
-            text: tweetData.text,
-            result: result[0].tones
+            text: textString,
+            result: result[1].tones
           })
         }
       })
@@ -70,9 +88,14 @@ function analyzeAll(req, res, next) {
     if (err) console.log(err)
     else {
       var tweetData = JSON.parse(resp.body)
-      var wantedData = tweetData.filter(dateRange)
+      var wantedData = tweetData.filter((tweet) => {
+        var createdAt = new Date(tweet.created_at)
+        var since = new Date(req.body.since)
+        var until = new Date(req.body.until)
+        return (createdAt > since && createdAt < until)
+      })
+      console.log(wantedData)
       wantedData.forEach((tweet) => {
-        console.log(tweet.text)
         tone_analyzer.tone({text: tweet.text}, (err, tone) => {
           if (err) console.log(err)
           else {
@@ -84,16 +107,15 @@ function analyzeAll(req, res, next) {
               tone_categories: result
             })
             makeReport(tweet.id, newReport)
-            console.log('watson success')
+            console.log(tweet.created_at)
           }
         })
       })
+
       res.redirect("/")
     }
   })
 }
-
-
 
 // wrapper functions for analyze and analyzeAll
 function makeReport(userId, newEntry) {
@@ -110,8 +132,8 @@ function makeReport(userId, newEntry) {
 }
 
 function dateRange(tweet) {
-  var since = new Date('2016-02-01')
-  var until = new Date('2016-03-01')
+  var since = new Date('2016-02-01') // req.body.since
+  var until = new Date('2016-03-01') // req.body.until
   var createdAt = new Date(tweet.created_at)
   return ( createdAt > since && createdAt < until)
 }
