@@ -1,20 +1,31 @@
 body {
   padding-bottom: 40px;
-  color: #5a5a5a;
+  color: white;
   font-family: 'Dosis', sans-serif;
+  background-color: white;
+  border: 75px solid;
+  border-color: darkgrey;
+
 }
 
 .navbar-wrapper {
   position: absolute;
   top: 0;
-  right: 0;
-  left: 0;
+  right: 75px;
+  left: 75px;
   z-index: 20;
+}
+
+#row1, #row2, #row3  {
+  background-color: lightgrey;
+  padding-top: 45px;
 }
 
 .navbar-wrapper > .container {
   padding-right: 0;
   padding-left: 0;
+  background-color: transparent;
+  width: 1043px;
 }
 .navbar-wrapper .navbar {
   padding-right: 15px;
@@ -22,27 +33,67 @@ body {
 }
 .navbar-wrapper .navbar .container {
   width: auto;
+  background-color: black;
 }
 
 #navbar {
 margin-left: 175px;
+background-color: white;
 }
 
 #nav-brand {
-  color: white;
+  color: grey;
   font-family: 'Dosis', sans-serif;
   font-size: 35px;
 }
 
 #nav-bar-login {
-  width: 125px;
-  height: 23px;
+  width: 160px;
+  height: 30px;
   float: right;
-  margin-top: 13px;
-  background-color: lightgrey;
+  margin-top: 10px;
+  margin-right: 10px;
+  background-image: url("../images/twitter-logo.png");
+  background-repeat: no-repeat;
 }
 
 /* Carousel base class */
+#twitter-login {
+  background-image: url("../images/twitter-logo.png");
+  background-repeat: no-repeat;
+  width: 160px;
+  height: 30px;
+}
+
+#think-twitter {
+  background-image: url(/images/TwitterSpotLight.png);
+  height: 500px;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center bottom;
+}
+
+#think-sentiment {
+  background-image: url(/images/SentimentImage.png);
+  height: 500px;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center bottom;
+}
+
+#think-tweet {
+  background-image: url(/images/ThinkTweet.png);
+  height: 500px;
+  background-size: 70% 100%;
+  background-repeat: no-repeat;
+  background-position: center bottom;
+}
+
+#circle-text {
+  background-color: lightgrey;
+}
+
+
 .carousel {
   height: 500px;
   margin-bottom: 60px;
@@ -54,6 +105,7 @@ margin-left: 175px;
 }
 
 /* Declare heights because of positioning of img element */
+
 .carousel .item {
   height: 500px;
   background-color: #777;
@@ -73,12 +125,14 @@ margin-left: 175px;
 /* Center align the text within the three columns below the carousel */
 .marketing .col-lg-4 {
   margin-bottom: 20px;
+  margin-top: 90px;
   text-align: center;
   font-family: 'Dosis', sans-serif;
 }
 .marketing h4 {
   font-weight: normal;
   font-family: 'Dosis', sans-serif;
+
 }
 .marketing .col-lg-4 p {
   margin-right: 10px;
@@ -91,7 +145,7 @@ margin-left: 175px;
 ------------------------- */
 
 .featurette-divider {
-  margin: 80px 0; /* Space out the Bootstrap <hr> more */
+  margin: 50px 0; /* Space out the Bootstrap <hr> more */
 }
 
 /* Thin out the marketing headings */
@@ -100,6 +154,7 @@ margin-left: 175px;
   line-height: 1;
   letter-spacing: -1px;
   font-family: 'Dosis', sans-serif;
+
 }
 
 
@@ -142,6 +197,13 @@ margin-left: 175px;
 @media (min-width: 992px) {
   .featurette-heading {
     margin-top: 120px;
+  }
+}
+
+@media (max-width: 780px) {
+  .navbar-wrapper{
+    left: 0;
+    right: 0;
   }
 }
 
