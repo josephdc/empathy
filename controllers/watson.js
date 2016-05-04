@@ -70,7 +70,9 @@ function analyzeAll(req, res, next) {
     if (err) console.log(err)
     else {
       var tweetData = JSON.parse(resp.body)
-      tweetData.forEach((tweet) => {
+      var wantedData = tweetData.filter(dateRange)
+      wantedData.forEach((tweet) => {
+        console.log(tweet.text)
         tone_analyzer.tone({text: tweet.text}, (err, tone) => {
           if (err) console.log(err)
           else {
@@ -113,7 +115,6 @@ function dateRange(tweet) {
   var createdAt = new Date(tweet.created_at)
   return ( createdAt > since && createdAt < until)
 }
-
 
 // watson testing
 var text = "hey guys hows it goin kripparrian here"
