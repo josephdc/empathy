@@ -79,13 +79,19 @@ function analyze(req, res, next) {
               return (console.log(err))
             }
           })
-          res.render('watson', {
-            text: textString,
-            result: result[1].tones
-          })
+          res.redirect(`/watson/show/${newReport._id}`)
         }
       })
     }
+  })
+}
+
+function showReport(req, res, next) {
+  Report.findById(req.params.id, function (err, report) {
+    res.render('watson', {
+      text: report.text,
+      result: report.tone_categories[1].tones
+    })
   })
 }
 
@@ -179,5 +185,6 @@ module.exports = {
   analyze: analyze,
   test: test,
   testTen: testTen,
-  analyzeAll: analyzeAll
+  analyzeAll: analyzeAll,
+  showReport: showReport
 }
