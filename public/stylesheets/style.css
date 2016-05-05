@@ -60,6 +60,7 @@ background-color: black;
 }
 
 /* Carousel base class */
+/*Twitter login button image on index page*/
 #twitter-login {
   background-image: url("../images/twitter-logo.png");
   background-repeat: no-repeat;
@@ -67,6 +68,7 @@ background-color: black;
   height: 30px;
 }
 
+/*Image for carousel*/
 #think-twitter {
   background-image: url(/images/TwitterSpotLight.png);
   height: 500px;
@@ -75,6 +77,7 @@ background-color: black;
   background-position: center bottom;
 }
 
+/*Image for carousel*/
 #think-sentiment {
   background-image: url(/images/SentimentImage.png);
   height: 500px;
@@ -83,16 +86,13 @@ background-color: black;
   background-position: center bottom;
 }
 
+/*Image for carousel*/
 #think-tweet {
   background-image: url(/images/ThinkTweet.png);
   height: 500px;
   background-size: 70% 100%;
   background-repeat: no-repeat;
   background-position: center bottom;
-}
-
-#circle-text {
-  background-color: lightgrey;
 }
 
 .carousel {
@@ -106,7 +106,6 @@ background-color: black;
 }
 
 /* Declare heights because of positioning of img element */
-
 .carousel .item {
   height: 500px;
   background-color: #777;
@@ -208,31 +207,27 @@ background-color: black;
   }
 }
 
-
-.select-reports {
-  color: darkgrey;
-  text-align: center;
-  margin-top: -50px;
-}
-
+/*Reports history*/
 .last-report {
   color: white;
   background-color: lightgrey;
-  border: 10px solid darkgrey;
-  margin-top: -45px;
-  margin-bottom: -25px;
+  border: 10px double white;
+  margin-top: -40px;
+  margin-bottom: -20px;
   margin-left: 0px
 
 }
 
+/*Chart analysis*/
 .chart1, .chart2, .chart3 {
   background-color: lightgrey;
   padding: 10px;
-  border: 10px solid darkgrey;
+  border: 10px double white;
   margin-top: 25px;
   margin-bottom: -25px
 }
 
+/*Chart text analysis*/
 .chart-text1, .chart-text2, .chart-text3 {
   height: 245px;
   width: 100%;
@@ -252,12 +247,12 @@ background-color: black;
   overflow: auto;
   padding-left: 3%;
 }
+
+/*Social media share keys*/
 .fb-share-button {
   margin-top: -10px;
   margin-left: 910px;
-
 }
-
 .twitter-share-button {
   margin-top: 0px;
   margin-left: 1020px;
