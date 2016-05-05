@@ -58,8 +58,8 @@
         <li data-target="#myCarousel" data-slide-to="2"></li>
       </ol>
       <div class="carousel-inner" role="listbox">
-
         <div id="slide1" class="item active">
+          <img src="/images/TwitterSpotLight.png" class="img-responsive"/>
           <div id="think-twitter" class="first-slide"></div>
           <div class="container">
             <div  class="carousel-caption">
@@ -70,6 +70,7 @@
         </div>
         <div id="slide2" class="item">
           <div id="think-sentiment" class="second-slide"></div>
+          <img src="/images/SentimentImage.png" class="img-responsive"/>
           <div class="container">
             <div class="carousel-caption">
               <h1></h1>
@@ -79,6 +80,7 @@
         </div>
         <div id="slide3" class="item">
           <div id="think-tweet" class="third-slide"></div>
+          <img src="/images/ThinkTweet.png" class="img-responsive"/>
           <div class="container">
             <div class="carousel-caption">
               <h1></h1>
@@ -102,24 +104,7 @@
     ================================================== -->
     <!-- Wrap the rest of the page in another container to center all the content. -->
 
-    <div class="container marketing">
-
-      <!-- Three columns of text below the carousel -->
-      <div id="circle-text" class="row">
-        <div class="col-lg-4">
-          <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
-          <h4>Emotional Summary</h4>
-        </div><!-- /.col-lg-4 -->
-        <div class="col-lg-4">
-          <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
-          <h4>Language Style Summary</h4>
-        </div><!-- /.col-lg-4 -->
-        <div class="col-lg-4">
-          <img class="img-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
-          <h4>Social Summary</h4>
-        </div><!-- /.col-lg-4 -->
-      </div><!-- /.row -->
-
+    <div class="container-fluid marketing">
 
       <!-- START THE FEATURETTES -->
 
@@ -130,7 +115,7 @@
           <h4 class="featurette-heading">Emotional<span class="text-muted"> Summary...</span></h4>
           <p class="lead">Discover what emotions you pertray with your Twitter Post... Emotional tone is inferred from different types of emotions and feelings that people express in their day to day life and especially in social media post. For each of these emotions, the service outputs a score that lies between 0 to 1 that indicates the probability that the emotion came across in your Tweet. In the table generated from your last 10 Tweets, the low value describes the lowest a score - Tweet can receive and can still be considered to comtain that emotion. The high value describes when the sentence or document has a high probability of belonging to that emotion. </p>
         </div>
-        <div class="col-md-5">
+        <div class="col-md-5 image">
           <img class="featurette-image img-responsive center-block" src="/images/EmotionSummary.png" alt="Generic placeholder image">
         </div>
       </div>
@@ -142,7 +127,7 @@
           <h2 class="featurette-heading">Language Style<span class="text-muted"> Summary...</span></h2>
           <p class="lead">Describes percieved writing style using these categories: analytical style, reasoning style and confidence. For each of these categories, the service outputs a score from 0 to 1 that indicates tendency toward being perceived as described in the table.  </p>
         </div>
-        <div class="col-md-5 col-md-pull-7">
+        <div class="col-md-5 col-md-pull-7 image">
           <img class="featurette-image img-responsive center-block" src="/images/LanguageStyle.png" alt="Generic placeholder image">
         </div>
       </div>
@@ -154,7 +139,7 @@
           <h2 class="featurette-heading">Social<span class="text-muted"> Summary...</span></h2>
           <p class="lead">Social tone measures the social tendencies in yor Tweets. SENTiment Analyzer responds with analysis on five different social tones; openness, conscientiousness, extraversion, agreeableness and emotional range/neuroticism. These five social tones are adopted from the Big-five personality model. For each of these categories, the service outputs a score from 0 to 1 that indicates tendency toward the listed behaviors. </p>
         </div>
-        <div class="col-md-5">
+        <div class="col-md-5 image">
           <img class="featurette-image img-responsive center-block" src="/images/SocialSummary.png" alt="Generic placeholder image">
         </div>
       </div>
@@ -173,7 +158,11 @@
     </div><!-- /.container -->
 
 
-
+<script type="text/javascript">
+  (function () {
+      $("#myCarousel").carousel();
+   })();
+ </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 
