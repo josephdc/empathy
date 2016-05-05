@@ -14,6 +14,11 @@ body {
   text-align: center;
 }
 
+#reports {
+  max-height: 210px;
+  overflow: auto;
+}
+
 .gray-bg {
   background-color: lightgray;
 }
