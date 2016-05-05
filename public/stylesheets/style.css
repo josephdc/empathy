@@ -66,26 +66,14 @@ background-color: white;
 }
 
 #think-twitter {
-  background-image: url(/images/TwitterSpotLight.png);
-  height: 500px;
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
   background-position: center bottom;
 }
 
 #think-sentiment {
-  background-image: url(/images/SentimentImage.png);
-  height: 500px;
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
   background-position: center bottom;
 }
 
 #think-tweet {
-  background-image: url(/images/ThinkTweet.png);
-  height: 500px;
-  background-size: 70% 100%;
-  background-repeat: no-repeat;
   background-position: center bottom;
 }
 
@@ -94,10 +82,6 @@ background-color: white;
 }
 
 
-.carousel {
-  height: 500px;
-  margin-bottom: 60px;
-}
 /* Since positioning the image, we need to help out the caption */
 .carousel-caption {
   z-index: 10;
@@ -107,15 +91,15 @@ background-color: white;
 /* Declare heights because of positioning of img element */
 
 .carousel .item {
-  height: 500px;
+  height: auto;
   background-color: #777;
 }
 .carousel-inner > .item > img {
-  position: absolute;
-  top: 0;
-  left: 0;
   min-width: 100%;
-  height: 500px;
+}
+
+.image {
+  margin-bottom: 50px;
 }
 
 
@@ -154,12 +138,18 @@ background-color: white;
   line-height: 1;
   letter-spacing: -1px;
   font-family: 'Dosis', sans-serif;
+  margin-top: auto;
 
 }
 
 
 /* RESPONSIVE CSS
 -------------------------------------------------- */
+@media (min-width: 1200px) {
+  .container{
+    width:1132px;
+  }
+}
 
 @media (min-width: 768px) {
   /* Navbar positioning foo */
@@ -194,11 +184,7 @@ background-color: white;
   }
 }
 
-@media (min-width: 992px) {
-  .featurette-heading {
-    margin-top: 120px;
-  }
-}
+
 
 @media (max-width: 780px) {
   .navbar-wrapper{
