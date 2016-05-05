@@ -1,24 +1,62 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <link href='https://fonts.googleapis.com/css?family=Dosis:400,800' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Alegreya+SC:400,900' rel='stylesheet' type='text/css'>
+
     <meta charset="utf-8">
-    <title></title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SENTiment Analysis</title>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript" src='javascripts/chart.js'></script>
     <script type="text/javascript" src='javascripts/report.js'></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="stylesheets/style.css" />
+
+
   </head>
   <body>
-    <h1>Select report to view</h1>
-    <select></select>
+    <div class="navbar-wrapper">
+<!--       <div class="container"> -->
+        <nav class="navbar navbar-inverse navbar-static-top">
+<!--           <div class="container"> -->
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a id="nav-brand" class="navbar-brand" href="#">SENTiment</a>
+            </div>
+            <div class="navbar-collapse collapse">
+              <ul id="navbar" class="nav navbar-nav">
+                <li class="active"><a href="#">ABOUT</a></li>
+                <% if (user) { %>
+                <li><a href="/profile">PROFILE</a></li>
+                <li><a href="/tweets">HISTORY</a></li>
+                <li><a href="/watson">ANALYZE</a></li>
+                <% } %>
+              </ul>
+              <% if (!user) { %>
+                <a id="nav-bar-login" class="btn btn-xs btn-default" href="/login" role="button"><img src="images/twitter-logo.png"></a>
+              <% } else { %>
+                <a id="nav-bar-login" class="btn btn-xs btn-default" href="/logout" role="button">Log out</a>
+              <% } %>
+            </div>
+          <!-- </div> -->
+        </nav>
 
-    <h1>Last tweet report</h1>
-    <div id='emo-chart'></div>
-    <div id='lang-chart'></div>
-    <div id='soc-chart'></div>
+      <!-- </div> -->
+    </div>
 
     <!-- <! FACEBOOK SHARE BUTTON !> -->
 
+    <div class="fb-share-button" data-href="https://www.google.com" data-layout="button_count" data-mobile-iframe="true"></div>
     <div id="fb-root"></div>
     <script>(function(d, s, id) {
       var js, fjs = d.getElementsByTagName(s)[0];
@@ -28,11 +66,27 @@
       fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));</script>
 
-    <div class="fb-share-button" data-href="https://www.google.com" data-layout="button_count" data-mobile-iframe="true"></div>
 
-
-  <!-- <! TWEET BUTTON !> -->
+    <!-- <! TWEET BUTTON !> -->
     <a href="https://twitter.com/share" class="twitter-share-button" data-url="https://www.google.com" data-text="This is how I am when I tweet, check it out!!!">Tweet</a>
     <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+
+    <h1 class="select-reports">Select report to view</h1>
+    <div class="date-range"> <select></select> </div>
+
+    <h1 class="last-report">Tweet Analysis - Dates </h1>
+
+
+    <div class="chart1">
+    <div id='emo-chart'></div>
+    </div>
+    <div class="chart2" id='lang-chart'></div>
+    <div class="chart3" id='soc-chart'></div>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
   </body>
 </html>

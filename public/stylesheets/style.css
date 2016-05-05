@@ -37,8 +37,7 @@ body {
 }
 
 #navbar {
-margin-left: 175px;
-background-color: white;
+background-color: black;
 }
 
 #nav-brand {
@@ -48,13 +47,15 @@ background-color: white;
 }
 
 #nav-bar-login {
-  width: 160px;
-  height: 30px;
+  width: 150px;
+  height: 25px;
   float: right;
-  margin-top: 10px;
+  margin-top: 13px;
   margin-right: 10px;
-  background-image: url("../images/twitter-logo.png");
   background-repeat: no-repeat;
+  background-color: lightgrey;
+  font-size: 18px;
+  line-height: 18px;
 }
 
 /* Carousel base class */
@@ -92,7 +93,6 @@ background-color: white;
 #circle-text {
   background-color: lightgrey;
 }
-
 
 .carousel {
   height: 500px;
@@ -207,3 +207,38 @@ background-color: white;
   }
 }
 
+
+.select-reports {
+  color: darkgrey;
+  text-align: center;
+  margin-top: -50px;
+}
+
+.last-report {
+  color: darkgrey;
+  margin-top: 45px;
+  margin-left: 20px;
+}
+
+.chart1, .chart3 {
+  background-color: lightgrey;
+}
+
+.chart2 {
+  margin-left: 543px;
+  background-color: lightgrey;
+}
+
+.fb-share-button {
+  margin-top: 10px;
+  margin-left: 940px;
+}
+
+.twitter-share-button {
+  margin-top: 10px;
+  margin-left: 940px;
+}
+
+.date-range {
+  margin-left: 50%;
+}

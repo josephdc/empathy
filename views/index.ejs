@@ -30,7 +30,6 @@
             </div>
             <div class="navbar-collapse collapse">
               <ul id="navbar" class="nav navbar-nav">
-                <li class="active"><a href="#">Home</a></li>
                 <% if (user) { %>
                 <li><a href="/profile">Profile</a></li>
                 <li><a href="/tweets">See last tweet</a></li>
@@ -38,7 +37,7 @@
                 <% } %>
               </ul>
               <% if (!user) { %>
-                <a id="nav-bar-login" class="btn btn-xs btn-default" href="/login" role="button"></a>
+                <a id="nav-bar-login" class="btn btn-xs btn-default" href="/login" role="button"><img src="images/twitter-logo.png"></a>
               <% } else { %>
                 <a id="nav-bar-login" class="btn btn-xs btn-default" href="/logout" role="button">Log out</a>
               <% } %>

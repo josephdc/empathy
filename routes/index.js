@@ -20,7 +20,7 @@ router.get('/login', passport.authenticate('twitter'))
 router.get('/oauthcallback',
   passport.authenticate('twitter', {failureRedirect:'/'}),
   function(req, res) {
-    res.redirect('/');
+    res.redirect('/watson/setup');
   }
 );
 
@@ -31,7 +31,7 @@ router.get('/logout', function(req, res) {
 
 // profile page
 router.get('/profile', function(req, res) {
-  res.render('report')
+  res.render('report', {user: req.user})
 })
 
 // query page
