@@ -218,11 +218,10 @@ background-color: black;
 .last-report {
   color: white;
   background-color: lightgrey;
-  margin-top: 45px;
-  margin-left: 20px;
-  border: 5px solid darkgrey;
-  margin-top: -55px;
+  border: 10px solid darkgrey;
+  margin-top: -45px;
   margin-bottom: -25px;
+  margin-left: 0px
 
 }
 
@@ -235,20 +234,28 @@ background-color: black;
 }
 
 .chart-text1, .chart-text2, .chart-text3 {
-  width: 106%;
-  height: 220px;
+  height: 245px;
+  width: 100%;
   float: right;
   color: grey;
-  margin-top: 20px;
-  margin-right: 0px;
+  margin-top: 25px;
+  margin-right: 15px;
+  margin-left: -30px;
+  margin-bottom: 14px;
   border: 6px solid white;
   background-color: lightgrey;
   font-family: 'Dosis', sans-serif;
+  font-size: 11px;
 }
 
+.word-wrap {
+  overflow: auto;
+  padding-left: 3%;
+}
 .fb-share-button {
-  margin-top: 0px;
+  margin-top: -10px;
   margin-left: 910px;
+
 }
 
 .twitter-share-button {
