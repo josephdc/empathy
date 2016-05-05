@@ -10,6 +10,12 @@
   <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" />
 </head>
 <body>
+  <% if (error) { %>
+    <p id="error" style="color: red">
+      There are either no tweets in this date range or you're searching too early in your history.
+    </p>
+  <% } %>
+
   <form action="/watson/analyze" method="POST">
     <input type="text" name="daterange" value="01/01/2016 - 05/6/2016" />
     <input type="submit">
