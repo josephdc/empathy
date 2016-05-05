@@ -43,8 +43,11 @@ function analyze(req, res, next) {
       wantedData.forEach((tweet) => {
         textString += `${tweet.text}. `
       })
+
       tone_analyzer.tone({ text: textString }, function(err, tone) {
-        if (err) console.log(err);
+        if (err) {
+          res.render('query', {error: err})
+        }
         else {
           // get desired data from returned json
           var result = tone.document_tone.tone_categories
