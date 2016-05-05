@@ -6,6 +6,31 @@ body {
   border-color: darkgrey;
 }
 
+#error-message {
+  color: red;
+  border: 1px solid red;
+  border-radius: 5px;
+  font-size: 18px;
+  text-align: center;
+}
+
+#body {
+  margin: 20px 10px 10px;
+}
+
+.gray-bg {
+  background-color: lightgray;
+}
+
+.text-center {
+  text-align: center;
+}
+
+input[type='submit']{
+  background-color: purple;
+  color: white;
+}
+
 .navbar-wrapper {
   position: absolute;
   top: 0;
@@ -55,36 +80,4 @@ background-color: black;
   background-color: lightgrey;
   font-size: 18px;
   line-height: 18px;
-}
-
-/* Carousel base class */
-#twitter-login {
-  background-image: url("../images/twitter-logo.png");
-  background-repeat: no-repeat;
-  width: 160px;
-  height: 30px;
-}
-
-#think-twitter {
-  background-image: url(/images/TwitterSpotLight.png);
-  height: 500px;
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-  background-position: center bottom;
-}
-
-#think-sentiment {
-  background-image: url(/images/SentimentImage.png);
-  height: 500px;
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-  background-position: center bottom;
-}
-
-#think-tweet {
-  background-image: url(/images/ThinkTweet.png);
-  height: 500px;
-  background-size: 70% 100%;
-  background-repeat: no-repeat;
-  background-position: center bottom;
 }
