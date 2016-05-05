@@ -13,6 +13,8 @@ router.get('/', function(req, res, next) {
   res.render('index', { user: req.user });
 });
 
+
+
 // twitter oauth login
 router.get('/login', passport.authenticate('twitter'))
 
@@ -38,12 +40,14 @@ router.get('/profile', function(req, res) {
 router.get('/watson/setup', function(req, res) {
   res.render('query')
 })
+router.get('/watson/setup/ajax', reportController.reportIndex)
 
 // third party api calls
 router.get('/watson', watsonController.analyze)
 router.post('/watson/analyze', watsonController.analyze)
 router.get('/watson/test', watsonController.test)
 router.get('/watson/ten', watsonController.testTen)
+router.get('/watson/show/:id', watsonController.showReport)
 router.get('/tweets', tweetsController.show)
 
 // database retrieval test

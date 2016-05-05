@@ -37,6 +37,8 @@ function index(req, res, next) {
 
 function analyze(req, res, next) {
   // twitter part
+  console.log(req.body.daterange)
+  var query = req.body.daterange.split(" - ")
   client.get('statuses/user_timeline', {screen_name: req.user.username}, function(err, tweets, resp) {
     if (err) console.log(err)
     else {
@@ -44,21 +46,21 @@ function analyze(req, res, next) {
 
       var tweetData = JSON.parse(resp.body)
       // filter function by date range
-      console.log(tweetData)
-      console.log(`since: ${req.body.since}`)
+      // console.log(tweetData)
+      // console.log(`since: ${req.body.since}`)
       var wantedData = tweetData.filter((tweet) => {
         var createdAt = new Date(tweet.created_at)
-        var since = new Date(req.body.since)
-        var until = new Date(req.body.until)
+        var since = new Date(query[0])
+        var until = new Date(query[1])
         return (createdAt > since && createdAt < until)
       })
-      console.log(wantedData)
+      // console.log(wantedData)
       // concatentate tweets into one string
       textString = ''
       wantedData.forEach((tweet) => {
         textString += `${tweet.text}. `
       })
-      console.log(`textString: ${textString}`)
+      // console.log(`textString: ${textString}`)
       tone_analyzer.tone({ text: textString }, function(err, tone) {
         if (err) console.log(err);
         else {
@@ -67,19 +69,29 @@ function analyze(req, res, next) {
           // save result to data base
           var newReport = new Report({
             user_id: req.user.id,
-            report_name: `${req.body.since} to ${req.body.until}`,
+            report_name: `${query[0]} to ${query[1]}`,
             text: textString,
             created_at: Date.now(),
             tone_categories: result
           });
-          newReport.save()
-          res.render('watson', {
-            text: textString,
-            result: result[1].tones
+          newReport.save(function(err) {
+            if (err) {
+              return (console.log(err))
+            }
           })
+          res.redirect(`/watson/show/${newReport._id}`)
         }
       })
     }
+  })
+}
+
+function showReport(req, res, next) {
+  Report.findById(req.params.id, function (err, report) {
+    res.render('watson', {
+      text: report.text,
+      result: report.tone_categories[1].tones
+    })
   })
 }
 
@@ -173,5 +185,6 @@ module.exports = {
   analyze: analyze,
   test: test,
   testTen: testTen,
-  analyzeAll: analyzeAll
+  analyzeAll: analyzeAll,
+  showReport: showReport
 }

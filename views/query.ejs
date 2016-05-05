@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+<!-- <<<<<<< HEAD
     <meta charset="utf-8">
     <title></title>
   </head>
@@ -13,3 +14,28 @@
     </form>
   </body>
 </html>
+======= -->
+<script type="text/javascript" src="//cdn.jsdelivr.net/jquery/1/jquery.min.js"></script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap/latest/css/bootstrap.css" />
+
+<!-- Include Date Range Picker -->
+<script type="text/javascript" src="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" />
+</head>
+<body>
+  <form action="/watson/analyze" method="POST">
+    <input type="text" name="daterange" value="01/01/2016 - 05/6/2016" />
+    <input type="submit">
+  </form>
+  <h1> Your Reports </h1>
+  <ul id="reports"></ul>
+  <script type="text/javascript">
+  $(function() {
+      $('input[name="daterange"]').daterangepicker();
+  });
+  </script>
+  <script type="text/javascript" src='/javascripts/script.js'></script>
+</body>
+</html>
+

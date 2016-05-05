@@ -65,7 +65,7 @@ function findReportById(req, res, next) {
 // last report of logged in user
 function findLatestReport(req, res, next) {
   var id = req.user.id;
-  Report.find({user_id: id}).sort({tweetId: -1}).limit(1).exec((err, doc) => {
+  Report.find({user_id: id}).sort({created_at: -1}).limit(1).exec((err, doc) => {
     if (err) res.send(err)
     else res.json(doc)
   })

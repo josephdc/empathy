@@ -79,25 +79,25 @@ function drawSocialChart() {
 }
 
 $.ajax({
-  url: '/api/reports/latest',
+  url: '/api/reports/' + window.location.pathname.split('/')[3],
   method: 'GET'
 }).then(function(doc){
   // emotion section
-  var tones = doc[0].tone_categories[0].tones
+  var tones = doc.tone_categories[0].tones
   var emotions = ['anger', 'disgust', 'fear', 'joy', 'sadness']
   emotions.forEach(function(emotion, index) {
     emotionScore[emotion] = tones[index].score
   })
 
   // language style section
-  var style = doc[0].tone_categories[1].tones
+  var style = doc.tone_categories[1].tones
   var langStyles = ['analytical', 'confident', 'tentative']
   langStyles.forEach(function(langStyle, index) {
     writingScore[langStyle] = style[index].score
   })
 
   // social section
-  var soc = doc[0].tone_categories[2].tones
+  var soc = doc.tone_categories[2].tones
   var personalities = ['openness', 'conscientiousness', 'extraversion', 'agreeableness', 'neuroticism']
   personalities.forEach(function(personality, index) {
     socialScore[personality] = soc[index].score
