@@ -1,0 +1,90 @@
+body {
+  padding-bottom: 40px;
+  font-family: 'Dosis', sans-serif;
+  background-color: white;
+  border: 75px solid;
+  border-color: darkgrey;
+}
+
+.navbar-wrapper {
+  position: absolute;
+  top: 0;
+  right: 75px;
+  left: 75px;
+  z-index: 20;
+}
+
+#row1, #row2, #row3  {
+  background-color: lightgrey;
+  padding-top: 45px;
+}
+
+.navbar-wrapper > .container {
+  padding-right: 0;
+  padding-left: 0;
+  background-color: transparent;
+  width: 1043px;
+}
+.navbar-wrapper .navbar {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+.navbar-wrapper .navbar .container {
+  width: auto;
+  background-color: black;
+}
+
+#navbar {
+background-color: black;
+}
+
+#nav-brand {
+  color: grey;
+  font-family: 'Dosis', sans-serif;
+  font-size: 35px;
+  background-color: black;
+}
+
+#nav-bar-login {
+  width: 150px;
+  height: 25px;
+  float: right;
+  margin-top: 13px;
+  margin-right: 10px;
+  background-repeat: no-repeat;
+  background-color: lightgrey;
+  font-size: 18px;
+  line-height: 18px;
+}
+
+/* Carousel base class */
+#twitter-login {
+  background-image: url("../images/twitter-logo.png");
+  background-repeat: no-repeat;
+  width: 160px;
+  height: 30px;
+}
+
+#think-twitter {
+  background-image: url(/images/TwitterSpotLight.png);
+  height: 500px;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center bottom;
+}
+
+#think-sentiment {
+  background-image: url(/images/SentimentImage.png);
+  height: 500px;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center bottom;
+}
+
+#think-tweet {
+  background-image: url(/images/ThinkTweet.png);
+  height: 500px;
+  background-size: 70% 100%;
+  background-repeat: no-repeat;
+  background-position: center bottom;
+}
