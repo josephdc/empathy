@@ -45,20 +45,15 @@ router.get('/watson/setup/ajax', reportController.reportIndex)
 // third party api calls
 router.get('/watson', watsonController.analyze)
 router.post('/watson/analyze', watsonController.analyze)
-router.get('/watson/test', watsonController.test)
-router.get('/watson/ten', watsonController.testTen)
-router.get('/watson/show/:id', watsonController.showReport)
 router.get('/tweets', tweetsController.show)
 
-// database retrieval test
-router.get('/db', reportController.show)
+// show report from db
+router.get('/watson/show/:id', reportController.showReport)
 
 // homegrown api calls
-router.get('/api/you', apiController.findYourself)
 router.get('/api/users/id/:id', apiController.findUserById)
 router.get('/api/users/username/:username', apiController.findUserByUsername)
 router.get('/api/users/displayname/:displayname', apiController.findUserByDisplayname)
-router.get('/api/reports/latest', apiController.findLatestReport)
 router.get('/api/reports/:id', apiController.findReportById)
 
 module.exports = router;
