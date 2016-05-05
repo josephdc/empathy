@@ -37,7 +37,7 @@ function findReportById(req, res, next) {
     if (!err) res.json(doc)
   })
 }
-<<<<<<< HEAD
+
 
 // last report of logged in user
 function findLatestReport(req, res, next) {
@@ -47,5 +47,5 @@ function findLatestReport(req, res, next) {
     else res.json(doc)
   })
 }
-=======
->>>>>>> ae08d3655c0ae048d0ad301945ebd4e910aaeebe
+
+
