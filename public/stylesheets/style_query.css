@@ -14,10 +14,6 @@ body {
   text-align: center;
 }
 
-#body {
-  margin: 20px 10px 10px;
-}
-
 .gray-bg {
   background-color: lightgray;
 }
@@ -54,7 +50,7 @@ input[type='submit']{
   padding-right: 15px;
   padding-left: 15px;
 }
-.navbar-wrapper .navbar .container {
+.navbar-wrapper .navbar {
   width: auto;
   background-color: black;
 }
