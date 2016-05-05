@@ -8,7 +8,6 @@ var userSchema = new mongoose.Schema({
   displayname: String,
   created_at: Date,
   updated_at: Date
-  // reports: [{type: schema.Types.ObjectId, ref: "Report"}]
 })
 
 var User = mongoose.model("User", userSchema);

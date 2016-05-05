@@ -3,35 +3,11 @@ var Report = require('../models/report');
 var User = require('../models/user');
 
 module.exports = {
-  findYourself:          findYourself,
-  findUserById:          findUser,
+  findUserById:          findUserById,
   findUserByUsername:    findUserByUsername,
   findUserByDisplayname: findUserByDisplayname,
-  findReportById:        findReportById,
-  findLatestReport:      findLatestReport
+  findReportById:        findReportById
 };
-
-function findDocumentHandler(err, doc) {
-  if (err) res.send(err)
-};
-
-function findYourself(req, res, next) {
-  var yours = req.user.id;
-  User.findOne({id: yours}, (err, doc) => {
-    if (!err) res.json(doc)
-  });
-};
-
-function findUser (req, res, next) {
-  // var id = req.query.id;
-  // var username = req.query.username;
-  // var displayname = req.query.displayname;
-  // var attrs = [id, username, displayname]
-  //
-  // attrs.forEach((attr) => {
-  //   if (attr) return
-  // })
-}
 
 function findUserById (req, res, next) {
   var id = req.params.id;
@@ -61,6 +37,7 @@ function findReportById(req, res, next) {
     if (!err) res.json(doc)
   })
 }
+<<<<<<< HEAD
 
 // last report of logged in user
 function findLatestReport(req, res, next) {
@@ -70,3 +47,5 @@ function findLatestReport(req, res, next) {
     else res.json(doc)
   })
 }
+=======
+>>>>>>> ae08d3655c0ae048d0ad301945ebd4e910aaeebe
