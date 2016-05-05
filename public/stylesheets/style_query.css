@@ -82,3 +82,23 @@ background-color: black;
   font-size: 18px;
   line-height: 18px;
 }
+
+.fb_iframe_widget span {
+  vertical-align: baseline !important;
+  /* makes the facebook share button line up with twitter's */
+  /* probably the only legitimate reason for using !important */
+}
+
+@media only screen and (max-device-width: 768px) {
+  .navbar-wrapper {
+    position: unset;
+    top: unset;
+    right: unset;
+    left: unset;
+    z-index: unset;
+  }
+
+  body {
+    border: unset;
+  }
+}
