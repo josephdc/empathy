@@ -31,15 +31,14 @@
             <div class="navbar-collapse collapse">
               <ul id="navbar" class="nav navbar-nav">
                 <% if (user) { %>
-                <li><a href="/profile">Profile</a></li>
-                <li><a href="/tweets">See last tweet</a></li>
-                <li><a href="/watson">Analyze last tweet</a></li>
+                <li><a href="/">PROFILE</a></li>
+                <li><a href="/watson/setup">ANALYZE/VIEW</a></li>
                 <% } %>
               </ul>
               <% if (!user) { %>
                 <a id="nav-bar-login" class="btn btn-xs btn-default" href="/login" role="button"><img src="images/twitter-logo.png"></a>
               <% } else { %>
-                <a id="nav-bar-login" class="btn btn-xs btn-default" href="/logout" role="button">Log out</a>
+                <a id="nav-bar-login" class="btn btn-xs btn-default" href="/logout" role="button">LOG OUT</a>
               <% } %>
             </div>
           <!-- </div> -->

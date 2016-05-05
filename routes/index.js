@@ -38,7 +38,7 @@ router.get('/profile', function(req, res) {
 
 // query page
 router.get('/watson/setup', function(req, res) {
-  res.render('query')
+  res.render('query', { user: req.user })
 })
 router.get('/watson/setup/ajax', reportController.reportIndex)
 

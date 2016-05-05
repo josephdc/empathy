@@ -7,6 +7,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <title>SENTiment Analysis</title>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
@@ -38,14 +39,13 @@
                 <li class="active"><a href="#">ABOUT</a></li>
                 <% if (user) { %>
                 <li><a href="/profile">PROFILE</a></li>
-                <li><a href="/tweets">HISTORY</a></li>
-                <li><a href="/watson">ANALYZE</a></li>
+                <li><a href="/watson/setup">ANALYZE/VIEW</a></li>
                 <% } %>
               </ul>
               <% if (!user) { %>
                 <a id="nav-bar-login" class="btn btn-xs btn-default" href="/login" role="button"><img src="images/twitter-logo.png"></a>
               <% } else { %>
-                <a id="nav-bar-login" class="btn btn-xs btn-default" href="/logout" role="button">Log out</a>
+                <a id="nav-bar-login" class="btn btn-xs btn-default" href="/logout" role="button">LOG OUT</a>
               <% } %>
             </div>
           <!-- </div> -->
