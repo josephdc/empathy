@@ -19,6 +19,7 @@ body {
 #row1, #row2, #row3  {
   background-color: lightgrey;
   padding-top: 45px;
+  margin:0;
 }
 
 .navbar-wrapper > .container {
