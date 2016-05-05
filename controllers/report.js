@@ -3,8 +3,11 @@ var Report = require("../models/report")
 
 function showReport(req, res, next) {
   Report.findById(req.params.id, function (err, report) {
+    var id = (req.user ? req.user.id : null)
     res.render('watson', {
-      text: report.text
+      text: report.text,
+      user: id,
+      title: report.report_name
     })
   })
 }

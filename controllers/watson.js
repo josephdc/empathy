@@ -46,7 +46,7 @@ function analyze(req, res, next) {
 
       tone_analyzer.tone({ text: textString }, function(err, tone) {
         if (err) {
-          res.render('query', {error: err})
+          res.render('query', {user: req.user.id, error: err})
         }
         else {
           // get desired data from returned json

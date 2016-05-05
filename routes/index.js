@@ -31,14 +31,9 @@ router.get('/logout', function(req, res) {
   res.redirect('/');
 })
 
-// profile page
-router.get('/profile', function(req, res) {
-  res.render('report')
-})
-
 // query page
 router.get('/watson/setup', function(req, res) {
-  res.render('query', {error: null})
+  res.render('query', { error: null, user: req.user })
 })
 router.get('/watson/setup/ajax', reportController.reportIndex)
 

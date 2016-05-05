@@ -1,32 +1,81 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <script type="text/javascript" src="//cdn.jsdelivr.net/jquery/1/jquery.min.js"></script>
-  <script type="text/javascript" src="//cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
-  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap/latest/css/bootstrap.css" />
 
-  <!-- Include Date Range Picker -->
-  <script type="text/javascript" src="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
-  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" />
-</head>
-<body>
-  <% if (error) { %>
-    <p id="error" style="color: red">
-      There are either no tweets in this date range or you're searching too early in your history.
-    </p>
-  <% } %>
+  <head>
 
-  <form action="/watson/analyze" method="POST">
-    <input type="text" name="daterange" value="01/01/2016 - 05/6/2016" />
-    <input type="submit">
-  </form>
-  <h1> Your Reports </h1>
-  <ul id="reports"></ul>
-  <script type="text/javascript">
-  $(function() {
-      $('input[name="daterange"]').daterangepicker();
-  });
-  </script>
-  <script type="text/javascript" src='/javascripts/script.js'></script>
+    <link href='https://fonts.googleapis.com/css?family=Dosis:400,800' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Alegreya+SC:400,900' rel='stylesheet' type='text/css'>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+    <!-- Include Date Range Picker -->
+    <script type="text/javascript" src="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" />
+
+    <!-- <link rel="stylesheet" href="stylesheets/style.css" /> -->
+    <script type="text/javascript" src='/javascripts/script.js'></script>
+
+    </head>
+
+    <body>
+      <div class="navbar-wrapper">
+<!--       <div class="container"> -->
+        <nav class="navbar navbar-inverse navbar-static-top">
+<!--           <div class="container"> -->
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a id="nav-brand" class="navbar-brand" href="/">SENTiment</a>
+            </div>
+            <div class="navbar-collapse collapse">
+              <ul id="navbar" class="nav navbar-nav">
+                <li class="active"><a href="/">ABOUT</a></li>
+                <% if (user) { %>
+                <li><a href="/watson/setup">ANALYZE/VIEW</a></li>
+                <% } %>
+              </ul>
+              <% if (!user) { %>
+                <a id="nav-bar-login" class="btn btn-xs btn-default" href="/login" role="button"><img src="images/twitter-logo.png"></a>
+              <% } else { %>
+                <a id="nav-bar-login" class="btn btn-xs btn-default" href="/logout" role="button">LOG OUT</a>
+              <% } %>
+            </div>
+          <!-- </div> -->
+        </nav>
+      </div>
+
+      <% if (error) { %>
+        <p id='error-message'>
+          There are no tweets in this date range or you're searching too far back in your history.
+        </p>
+      <% } %>
+
+      <form class="col-md-5 col-md-offset-5" action="/watson/analyze" method="POST">
+        <input type="text" name="daterange" value="01/01/2016 - 05/6/2016" />
+        <div>
+        <input class="btn btn-xs btn-default" type="submit">
+      </form>
+
+
+
+      <h1 class="report-history">Report History</h1>
+      <ul id="reports"></ul>
+
+      <script type="text/javascript">
+      $(function() {
+          $('input[name="daterange"]').daterangepicker();
+      });
+      </script>
 </body>
 </html>
