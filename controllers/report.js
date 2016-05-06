@@ -7,6 +7,7 @@ function showReport(req, res, next) {
     res.render('watson', {
       text: report.text,
       user: id,
+      reportId: req.params.id,
       title: report.report_name
     })
   })
